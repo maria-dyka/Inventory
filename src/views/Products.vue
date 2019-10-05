@@ -24,10 +24,7 @@ export default {
         TypeSelect,
         ProductsList,
         SpecificationSelect
-    },
-    beforeCreate: function () {
-        this.$store.dispatch('getProducts');
-    },
+    }
 }
 </script>
 

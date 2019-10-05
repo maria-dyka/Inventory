@@ -12,8 +12,11 @@ export default new Vuex.Store ({
         filteredProducts: null
     },
     getters: {
-       getAllProducts: (state) => state.products,
-       getFilteredProducts: (state) => state.filteredProducts
+       getAllProducts: state => state.products,
+       getFilteredProducts: state => state.filteredProducts,
+       getProductsInOrder: state => id => {
+           return state.products.filter(product => product.order === id);
+       }
     },
     mutations: {
         set(state, {type, item}){
@@ -33,7 +36,6 @@ export default new Vuex.Store ({
     actions: {
         getOrders ({ commit }){
             // // eslint-disable-next-line no-console
-            // console.log("Qqqqq" )
             axios.get('orders.json')
                 .then(response => {
                     commit('set', {type: 'orders', item: response.data})

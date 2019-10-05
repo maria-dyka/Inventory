@@ -3,12 +3,10 @@
         <div class="orders-header">
             <button class="orders-add">+</button>
             <span class="orders-amount">{{ `Приходы / ${orders.length}` }}</span>
-            <!--<button @click="getOrders">Get orders</button>-->
         </div>
         <OrderItem v-for="order in orders"
                    :key="order.id"
-                   :title="order.title"
-                   :id="order.id"></OrderItem>
+                   :order="order"></OrderItem>
     </section>
 </template>
 
@@ -16,11 +14,6 @@
 import OrderItem from '../components/OrderItem'
 export default {
     name: "Orders",
-    // data () {
-    //   return {
-    //       orders: this.$store.state.orders
-    //   }
-    // },
     computed: {
       orders () {
           return this.$store.state.orders
@@ -28,9 +21,6 @@ export default {
     },
     components: {
         OrderItem
-    },
-    beforeCreate: function () {
-        this.$store.dispatch('getOrders');
     }
 }
 </script>

@@ -19,6 +19,10 @@ export default {
   components: {
     TopMenu,
     NavigationMenu,
+  },
+  beforeCreate() {
+    this.$store.dispatch('getProducts');
+    this.$store.dispatch('getOrders');
   }
 }
 </script>
