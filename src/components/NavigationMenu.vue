@@ -1,11 +1,11 @@
 <template>
     <aside class="navigation-menu">
-        <div class="profile">
-            <img src="../assets/redkliff.jpeg" class="profile-photo" alt="Profile photo">
+        <div class="navigation-menu-user">
+            <img src="../assets/redkliff.jpeg" class="navigation-menu-user-photo" alt="Profile photo">
         </div>
-        <div class="links">
-            <router-link class="link" to="/">Приходы</router-link>
-            <router-link class="link" to="/products">Продукты</router-link>
+        <div class="navigation-menu-links">
+            <router-link class="navigation-menu-link" to="/">Приходы</router-link>
+            <router-link class="navigation-menu-link" to="/products">Продукты</router-link>
         </div>
     </aside>
 </template>
@@ -17,14 +17,14 @@ export default {
 </script>
 
 <style scoped>
-    .profile {
+    .navigation-menu-user {
         height: 20%;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 7% auto 7% auto;
     }
-    .profile-photo {
+    .navigation-menu-user-photo {
         width: 40%;
         border-radius: 50%;
     }
@@ -33,20 +33,20 @@ export default {
         flex-basis: 20%;
         box-shadow: 15px 0 15px -10px rgba(0, 0, 0, .2);
     }
-    .links {
+    .navigation-menu-links {
         display: flex;
         flex-direction: column;
         margin-top: 3%;
         align-items: center;
     }
-    .link {
+    .navigation-menu-link {
         text-decoration: none;
         font-size: 22px;
         font-weight: 600;
         color: black;
         padding: 2% 0 1% 0;
     }
-    .link:active{
+    .navigation-menu-link:active{
         border-bottom: solid 2px green;
     }
 </style>

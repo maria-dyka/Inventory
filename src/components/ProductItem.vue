@@ -1,6 +1,6 @@
 <template>
     <div class="product">
-        <p>{{ `${title}` }} </p>
+        <p class="product-title">{{ `${title}` }} </p>
     </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
     <section class="products">
         <div class="products-header">
-            <span class="products-amount">{{ `Продукты / ${products.length}` }}</span>
+            <span class="products-header-amount">{{ `Продукты / ${products.length}` }}</span>
             <TypeSelect></TypeSelect>
             <SpecificationSelect></SpecificationSelect>
         </div>
@@ -40,7 +40,7 @@ export default {
         align-items: center;
         margin: 4% 0 4% 0;
     }
-    .products-amount {
+    .products-header-amount {
         font-size: 30px;
         font-weight: 600;
     }

@@ -1,11 +1,11 @@
 <template>
     <header class="top-menu">
-        <div class="company">
+        <div class="top-menu-company">
             <img src="../assets/logo.png" width="50" height="50" class="company-logo" alt="Company Logo">
             <span class="company-name">INVENTORY</span>
         </div>
-        <input type="text" class="search" placeholder="Поиск">
-        <div class="date">
+        <input type="text" class="top-menu-search" placeholder="Поиск">
+        <div class="top-menu-date">
             <p>
                 Здесь может быть когда-то будет дата <br/>
                 И может быть какой-то счетчик:)
@@ -28,7 +28,7 @@ export default {
         align-items: center;
         box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .2);
     }
-    .company {
+    .top-menu-company {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -39,7 +39,7 @@ export default {
         font-weight: 700;
         margin-left: 20px;
     }
-    .search {
+    .top-menu-search {
         height: 25px;
         flex-basis: 20%;
         font-size: 15px;

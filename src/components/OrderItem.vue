@@ -1,16 +1,20 @@
 <template>
     <div class="order">
-        <div class="title">{{ order.title }}</div>
-        <div class="products">{{ numberOfProducts }}</div>
-        <div class ="date">
-            <p>{{ properDate.short }}</p>
-            <p>{{ properDate.full }}</p>
+        <div class="order-title">{{ order.title }}</div>
+        <div class="order-products">
+            <div class="order-products-icon"></div>
         </div>
-        <div class="price">
-            <p>{{ `${fullPrice.USD} $` }}</p>
-            <p>{{ `${fullPrice.UAH} UAH` }}</p>
+        <div class ="order-date">
+            <p class="order-date-short">{{ properDate.short }}</p>
+            <p class="order-date-full">{{ properDate.full }}</p>
         </div>
-        <div class="delete"></div>
+        <div class="order-price">
+            <p class="order-price-usd">{{ `${fullPrice.USD} $` }}</p>
+            <p class="order-price-uah">{{ `${fullPrice.UAH} UAH` }}</p>
+        </div>
+        <button class="order-delete">
+            <img class="order-delete-icon" src="../assets/delete.png" alt="Delete">
+        </button>
     </div>
 </template>
 
@@ -65,5 +69,14 @@ export default {
         flex-basis: 50%;
         margin: 1% 0 2% 0;
         border: solid 1px lightslategrey;
+    }
+    .order-delete-icon {
+        height: 20px;
+        width: 20px;
+    }
+    .order-delete {
+        background-color: white;
+        border: none;
+        cursor: pointer;
     }
 </style>

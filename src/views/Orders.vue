@@ -1,8 +1,8 @@
 <template>
     <section class="orders">
         <div class="orders-header">
-            <button class="orders-add">+</button>
-            <span class="orders-amount">{{ `Приходы / ${orders.length}` }}</span>
+            <button class="orders-header-add">+</button>
+            <span class="orders-header-amount">{{ `Приходы / ${orders.length}` }}</span>
         </div>
         <OrderItem v-for="order in orders"
                    :key="order.id"
@@ -37,7 +37,7 @@ export default {
         align-items: center;
         margin: 4% 0 4% 0;
     }
-    .orders-add {
+    .orders-header-add {
         width: 38px;
         height: 38px;
         color: white;
@@ -49,7 +49,7 @@ export default {
         box-shadow: 4px 4px 11px -4px rgba(0, 0, 0, 0.4);
         cursor: pointer;
     }
-    .orders-amount {
+    .orders-header-amount {
         font-size: 30px;
         font-weight: 600;
         margin-left: 20px;
