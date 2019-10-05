@@ -4,14 +4,12 @@
             <button class="orders-header-add">+</button>
             <span class="orders-header-amount">{{ `Приходы / ${orders.length}` }}</span>
         </div>
-        <OrderItem v-for="order in orders"
-                   :key="order.id"
-                   :order="order"></OrderItem>
+        <OrdersList :orders="orders"></OrdersList>
     </section>
 </template>
 
 <script>
-import OrderItem from '../components/OrderItem'
+import OrdersList from '../components/OrdersList'
 export default {
     name: "Orders",
     computed: {
@@ -20,7 +18,7 @@ export default {
       }
     },
     components: {
-        OrderItem
+        OrdersList
     }
 }
 </script>
@@ -48,10 +46,15 @@ export default {
         border: solid 3px green;
         box-shadow: 4px 4px 11px -4px rgba(0, 0, 0, 0.4);
         cursor: pointer;
+        outline: none;
+    }
+    .orders-header-add:hover {
+        box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, .2);
     }
     .orders-header-amount {
         font-size: 30px;
         font-weight: 600;
         margin-left: 20px;
     }
+
 </style>

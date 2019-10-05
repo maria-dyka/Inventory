@@ -74,15 +74,13 @@ export default {
 
 <style scoped>
     .order {
-        width: 80%;
-        flex-basis: 50%;
         margin: 1% 0 0 0;
         border: solid 1px lightgrey;
         border-radius: 5px;
         display: flex;
     }
     .order-title {
-        flex-basis: 45%;
+        flex-basis: 50%;
         overflow: hidden;
         display: flex;
         padding-left: 3%;
@@ -94,9 +92,9 @@ export default {
         border-bottom: solid 2px lightgrey;
     }
     .order-products {
-        flex-basis: 15%;
+        flex-basis: 10%;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         height: 100%;
     }
@@ -146,6 +144,7 @@ export default {
         background-size: 25%;
         border: none;
         cursor: pointer;
+        outline: none;
     }
     .order:hover {
         box-shadow: 15px 15px 40px -10px rgba(0, 0, 0, .2);
