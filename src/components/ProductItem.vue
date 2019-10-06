@@ -1,5 +1,6 @@
 <template>
     <div class="product">
+        <div class="product-dot"></div>
         <p class="product-title">{{ `${title}` }} </p>
     </div>
 </template>
@@ -8,8 +9,7 @@
 export default {
     name: "ProductItem",
     props: {
-        title: String,
-        id: Number
+        product: Object
     }
 }
 </script>

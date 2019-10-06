@@ -2,8 +2,7 @@
     <section class="products-list">
         <ProductItem v-for="product in products"
                      :key="product.id"
-                     :title="product.title"
-                     :id="product.id"></ProductItem>
+                     :product="product"></ProductItem>
     </section>
 </template>
 

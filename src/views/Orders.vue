@@ -39,11 +39,11 @@ export default {
         width: 38px;
         height: 38px;
         color: white;
-        background-color: limegreen;
+        background-color: rgb(72, 176, 44);
         font-weight: 700;
         font-size: 20px;
         border-radius: 50%;
-        border: solid 3px green;
+        border: solid 4px rgb(62, 138, 41);
         box-shadow: 4px 4px 11px -4px rgba(0, 0, 0, 0.4);
         cursor: pointer;
         outline: none;

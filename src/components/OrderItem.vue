@@ -25,6 +25,8 @@
 
 <script>
 import incline from '../incline'
+import getProperDate from '../getProperDate'
+
 export default {
     name: "OrderItem",
     props: {
@@ -32,16 +34,7 @@ export default {
     },
     computed: {
         properDate () {
-            let date = this.order.date;
-            let months = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
-            let year = date.slice(0, 4);
-            let month = months[date.slice(6, 7) - 1];
-            let day = date.slice(8, 11);
-
-
-
-            return {full: `${day} / ${month} / ${year}`,
-                    short: `${date.slice(5, 7)} / 12`};
+            return getProperDate(this.order.date);
         },
         productsInOrder () {
             return this.$store.getters.getProductsInOrder(this.order.id);
