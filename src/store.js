@@ -16,6 +16,15 @@ export default new Vuex.Store ({
        getFilteredProducts: state => state.filteredProducts,
        getProductsInOrder: state => id => {
            return state.products.filter(product => product.order === id);
+       },
+       getOrderFromProduct: state => id => {
+           let orderToSend;
+           state.orders.forEach(order => {
+               if(order.id === id){
+                  orderToSend = order;
+               }
+           });
+           return orderToSend;
        }
     },
     mutations: {

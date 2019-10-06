@@ -1,7 +1,7 @@
 <template>
     <div class="order">
         <div class="order-title">
-            <span class="order-title-text">{{ order.title }}</span>
+            <span class="title-text">{{ order.title }}</span>
         </div>
         <div class="order-products">
             <div class="order-products-icon"></div>
@@ -11,15 +11,14 @@
             </p>
         </div>
         <div class ="order-date">
-            <p class="order-date-short">{{ properDate.short }}</p>
-            <p class="order-date-full">{{ properDate.full }}</p>
+            <p class="date-short">{{ properDate.short }}</p>
+            <p class="date-full">{{ properDate.full }}</p>
         </div>
         <div class="order-price">
-            <p class="order-price-usd">{{ `${fullPrice.usd} $` }}</p>
-            <p class="order-price-uah">{{ `${fullPrice.uah} UAH` }}</p>
+            <p class="price-usd">{{ `${fullPrice.usd} $` }}</p>
+            <p class="price-uah">{{ `${fullPrice.uah} UAH` }}</p>
         </div>
-        <button class="order-delete">
-        </button>
+        <button class="delete"></button>
     </div>
 </template>
 
@@ -65,6 +64,31 @@ export default {
 }
 </script>
 
+<style>
+    .delete {
+        flex-basis: 8%;
+        background: url("../assets/delete.png") center no-repeat;
+        background-size: 25%;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+    .date-short, .price-usd, .text {
+        color: lightslategray;
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    .date-full, .price-uah, .guarantee {
+        margin-top: 0;
+        font-weight: 600;
+        color: rgb(86, 94, 99);
+    }
+    .title-text {
+        color: rgb(86, 94, 99);
+        font-size: 20px;
+        text-decoration: underline lightgrey;
+    }
+</style>
 <style scoped>
     .order {
         margin: 1% 0 0 0;
@@ -78,11 +102,6 @@ export default {
         display: flex;
         padding-left: 3%;
         align-items: center;
-    }
-    .order-title-text {
-        color: rgb(86, 94, 99);
-        font-size: 20px;
-        border-bottom: solid 2px lightgrey;
     }
     .order-products {
         flex-basis: 10%;
@@ -115,37 +134,14 @@ export default {
         flex-direction: column;
         justify-content: center;
     }
-    .order-date-short, .order-price-usd {
-        color: lightslategray;
-        font-size: 15px;
-        margin-bottom: 0;
-    }
-    .order-date-full, .order-price-uah {
-        margin-top: 0;
-        font-weight: 600;
-        color: rgb(86, 94, 99);
-    }
     .order-price {
         flex-basis: 12%;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .order-delete {
-        flex-basis: 8%;
-        background: url("../assets/delete.png") center no-repeat;
-        background-size: 25%;
-        border: none;
-        cursor: pointer;
-        outline: none;
-    }
     .order:hover {
         box-shadow: 15px 15px 40px -10px rgba(0, 0, 0, .2);
     }
 
-    @media screen and (max-width: 1556px) {
-        .order-title-text {
-            border-bottom: none;
-        }
-    }
 </style>
