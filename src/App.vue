@@ -23,6 +23,7 @@ export default {
   beforeCreate() {
     this.$store.dispatch('getProducts');
     this.$store.dispatch('getOrders');
+    this.$store.dispatch('getDate');
   }
 }
 </script>

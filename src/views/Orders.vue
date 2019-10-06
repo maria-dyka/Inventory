@@ -10,6 +10,7 @@
 
 <script>
 import OrdersList from '../components/OrdersList'
+import popUp from '../components/popUp'
 export default {
     name: "Orders",
     computed: {
@@ -18,7 +19,8 @@ export default {
       }
     },
     components: {
-        OrdersList
+        OrdersList,
+        popUp
     }
 }
 </script>

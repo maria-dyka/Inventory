@@ -9,7 +9,8 @@ export default new Vuex.Store ({
         orders: [],
         products: [],
         criteria: null,
-        filteredProducts: null
+        filteredProducts: null,
+        date: null
     },
     getters: {
        getAllProducts: state => state.products,
@@ -25,6 +26,22 @@ export default new Vuex.Store ({
                }
            });
            return orderToSend;
+       },
+       getCurrentDate: state => {
+           let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+           let month = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
+
+           let day = days[state.date.getDay()];
+           let fullDate = '';
+           if(state.date.getDate()<10){
+               fullDate = `0${state.date.getDate()} ${month[state.date.getMonth()]}, ${state.date.getFullYear()}`;
+           }
+           else{
+               fullDate = `${state.date.getDay()} ${month[state.date.getMonth()]}, ${state.date.getFullYear()}`;
+           }
+           let time = `${state.date.getHours()}:${state.date.getMinutes()}`;
+
+           return {day, fullDate, time};
        }
     },
     mutations: {
@@ -40,6 +57,9 @@ export default new Vuex.Store ({
                 state.criteria = value;
                 state.filteredProducts = state.products.filter(product => product.type === value);
             }
+        },
+        updateDate (state) {
+            state.date = new Date();
         }
     },
     actions: {
@@ -58,6 +78,13 @@ export default new Vuex.Store ({
         },
         FILTERED_PRODUCTS ({ commit }, value) {
             commit('FILTERED_PRODUCTS', value)
+        },
+        getDate ({ commit }){
+            commit('updateDate');
+
+            setInterval(() => {
+                commit('updateDate');
+            }, 5000);
         }
     }
 })

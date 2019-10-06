@@ -46,7 +46,7 @@ export default {
         color: black;
         padding: 2% 0 1% 0;
     }
-    .navigation-menu-link:active{
+    .router-link-exact-active {
         border-bottom: solid 2px green;
     }
 </style>

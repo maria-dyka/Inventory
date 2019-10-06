@@ -6,17 +6,27 @@
         </div>
         <input type="text" class="top-menu-search" placeholder="Поиск">
         <div class="top-menu-date">
-            <p>
-                Здесь может быть когда-то будет дата <br/>
-                И может быть какой-то счетчик:)
-            </p>
+            <div class="top-menu-date-full">
+                <span>{{ date.day }}</span>
+                <span>{{ date.fullDate }}</span>
+            </div>
+            <div class="top-menu-date-time">
+                <div class="clock-icon"></div>
+                <span id="time">{{ date.time }}</span>
+            </div>
+
         </div>
     </header>
 </template>
 
 <script>
 export default {
-  name: "TopMenu"
+  name: "TopMenu",
+  computed: {
+      date () {
+          return this.$store.getters.getCurrentDate;
+      }
+  }
 }
 </script>
 
@@ -47,5 +57,24 @@ export default {
         padding-left: 1%;
         border-radius: 5px;
         background-color: rgb(245, 247, 246);
+    }
+    .top-menu-date {
+        display: flex;
+    }
+    .top-menu-date-full {
+        display: flex;
+        flex-direction: column;
+    }
+    .top-menu-date-time {
+        display: flex;
+        align-self: flex-end;
+        justify-content: space-between;
+        padding-left: 9%;
+    }
+    .clock-icon {
+        width: 15px;
+        height: 15px;
+        background: url("../assets/clock.png") center no-repeat;
+        background-size: contain;
     }
 </style>

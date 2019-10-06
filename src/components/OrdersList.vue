@@ -14,7 +14,7 @@ export default {
       orders: Array
   },
   components: {
-      OrderItem
+      OrderItem,
   }
 }
 </script>
