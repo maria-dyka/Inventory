@@ -10,7 +10,12 @@ export default new Vuex.Store ({
         products: [],
         criteria: null,
         filteredProducts: null,
-        date: null
+        date: null,
+        big: true,
+        small:false,
+        showProducts: null,
+        showArrow: null,
+        id: null
     },
     getters: {
        getAllProducts: state => state.products,
@@ -42,6 +47,15 @@ export default new Vuex.Store ({
            let time = `${state.date.getHours()}:${state.date.getMinutes()}`;
 
            return {day, fullDate, time};
+       },
+       getOrderTitleById: state => id => {
+           let title = '';
+           state.orders.forEach(order => {
+               if(order.id === id){
+                   title = order.title;
+               }
+           });
+           return title;
        }
     },
     mutations: {

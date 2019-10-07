@@ -1,24 +1,25 @@
 <template>
-    <div class="order">
-        <div class="order-title">
+    <div class="order" @click="openProducts">
+        <div class="order-title" v-if="!small">
             <span class="title-text">{{ order.title }}</span>
         </div>
-        <div class="order-products">
+        <div :class="{'order-products': full, 'order-products-small': small}">
             <div class="order-products-icon"></div>
             <p class="order-products-amount">
                 <span class="order-products-number">{{ numberOfProducts.number }}</span><br/>
                 <span class="order-products-text">{{ numberOfProducts.text }}</span>
             </p>
         </div>
-        <div class ="order-date">
+        <div :class="{'order-date': full, 'order-date-small': small}">
             <p class="date-short">{{ properDate.short }}</p>
             <p class="date-full">{{ properDate.full }}</p>
         </div>
-        <div class="order-price">
+        <div class="order-price" v-if="!small">
             <p class="price-usd">{{ `${fullPrice.usd} $` }}</p>
             <p class="price-uah">{{ `${fullPrice.uah} UAH` }}</p>
         </div>
-        <button class="delete"></button>
+        <button class="delete" v-if="!small"></button>
+        <div class="order-arrow" v-if="order.id === currentId"></div>
     </div>
 </template>
 
@@ -29,7 +30,14 @@ import getProperDate from '../getProperDate'
 export default {
     name: "OrderItem",
     props: {
-        order: Object
+        order: Object,
+        small: Boolean
+    },
+    data () {
+        return {
+            full: true,
+            showArrow: false
+        }
     },
     computed: {
         properDate () {
@@ -59,6 +67,16 @@ export default {
             });
 
             return {usd, uah};
+        },
+        currentId () {
+            return this.$store.state.id;
+        }
+    },
+    methods: {
+        openProducts () {
+            this.showArrow = true;
+            this.$store.commit('set', {type: 'id', item: this.order.id});
+            this.$emit('goSmall', this.order.id);
         }
     }
 }
@@ -110,6 +128,10 @@ export default {
         align-items: center;
         height: 100%;
     }
+    .order-products-small {
+        flex-basis: 50% !important;
+        padding-left: 3%;
+    }
     .order-products-icon {
         min-width: 35px;
         min-height: 35px;
@@ -134,6 +156,9 @@ export default {
         flex-direction: column;
         justify-content: center;
     }
+    .order-date-small {
+        flex-basis: 50% !important;
+    }
     .order-price {
         flex-basis: 12%;
         display: flex;
@@ -142,6 +167,14 @@ export default {
     }
     .order:hover {
         box-shadow: 15px 15px 40px -10px rgba(0, 0, 0, .2);
+    }
+    .order-arrow {
+        flex-basis: 15%;
+        background-color: lightgrey;
+        background-image: url("../assets/arrow.png");
+        background-size: 30%;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
 </style>

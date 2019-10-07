@@ -1,25 +1,25 @@
 <template>
-    <div class="product">
+    <div :class="{'product': full,'product-short': short}">
         <div class="product-dot"></div>
-        <div class="product-title">
+        <div :class="{'product-title': !short,'product-title-short': short}">
             <span class="title-text" id="product-title-text">{{ product.title }}</span>
             <span class="text" id="product-title-serial">{{ `SN-${product.serialNumber}` }}</span>
         </div>
-        <div class="product-guarantee">
+        <div class="product-guarantee" v-if="!short">
             <span class="guarantee" id="guarantee-start"><span class="text">c </span>{{ guaranteeDate.start }}</span>
             <span class="guarantee" id="guarantee-end"><span class="text">по </span>{{ guaranteeDate.end }}</span>
         </div>
-        <div class="product-condition">
+        <div class="product-condition" v-if="!short">
             <span>{{ isNew }}</span>
         </div>
-        <div class="product-price">
+        <div class="product-price" v-if="!short">
             <p class="price-usd">{{ `${price.usd} $` }}</p>
             <p class="price-uah">{{ `${price.uah} UAH` }}</p>
         </div>
-        <div class="product-order">
+        <div class="product-order" v-if="!short">
             <span class="title-text" id="product-order-text">{{ relatedOrder.title }}</span>
         </div>
-        <div class="product-date">
+        <div class="product-date" v-if="!short">
             <p class="date-short">{{ date.short }}</p>
             <p class="date-full">{{ date.full }}</p>
         </div>
@@ -33,7 +33,13 @@ import getProperDate from '../getProperDate'
 export default {
     name: "ProductItem",
     props: {
-        product: Object
+        product: Object,
+        short: Boolean
+    },
+    data () {
+        return {
+            full: true
+        }
     },
     computed: {
         guaranteeDate () {
@@ -83,6 +89,12 @@ export default {
     .product:hover {
         box-shadow: 0 15px 40px -10px rgba(0, 0, 0, .2);
     }
+    .product-short {
+        margin: 1% 0 1% 0;
+        border: solid 1px lightgrey;
+        border-radius: 5px;
+        display: flex;
+    }
     .product-dot {
         width: 10px;
         height: 10px;
@@ -93,6 +105,14 @@ export default {
     }
     .product-title {
         flex-basis: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding-left: 1%;
+    }
+    .product-title-short {
+        flex-basis: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -138,22 +158,22 @@ export default {
         }
     }
 
-    @media screen and (max-width: 1640px){
-        .product {
-            width: 130vh;
-        }
-    }
+    /*@media screen and (max-width: 1640px){*/
+        /*.product {*/
+            /*width: 130vh;*/
+        /*}*/
+    /*}*/
 
-    @media screen and (max-width: 1340px){
-        .product {
-            width: 150vh;
-        }
-    }
+    /*@media screen and (max-width: 1340px){*/
+        /*.product {*/
+            /*width: 150vh;*/
+        /*}*/
+    /*}*/
 
-    @media screen and (max-width: 1250px){
-        .product {
-            width: 170vh;
-        }
-    }
+    /*@media screen and (max-width: 1250px){*/
+        /*.product {*/
+            /*width: 170vh;*/
+        /*}*/
+    /*}*/
 
 </style>
