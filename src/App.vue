@@ -24,6 +24,14 @@ export default {
     this.$store.dispatch('getProducts');
     this.$store.dispatch('getOrders');
     this.$store.dispatch('getDate');
+  },
+  sockets: {
+    connect: function () {
+      console.log('socket connected')
+    },
+    ping: function(data) {
+      this.$store.commit('set', {type: 'socketsCount', item: data.counter});
+    }
   }
 }
 </script>

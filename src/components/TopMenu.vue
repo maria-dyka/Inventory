@@ -16,7 +16,10 @@
                 </div>
                 <span id="time">{{ date.time }}</span>
             </div>
-
+        </div>
+        <div class="active">
+            <span class="active-pages">Активных вкладок:</span>
+            <span class="active-pages-counter">{{ counter }}</span>
         </div>
     </header>
 </template>
@@ -27,6 +30,9 @@ export default {
   computed: {
       date () {
           return this.$store.getters.getCurrentDate;
+      },
+      counter () {
+          return this.$store.state.socketsCount;
       }
   }
 }
@@ -42,7 +48,7 @@ export default {
         box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .2);
     }
     .top-menu-company {
-        flex-basis: 33%;
+        flex-basis: 25%;
         display: flex;
         align-items: center;
         justify-content: center;

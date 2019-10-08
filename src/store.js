@@ -17,7 +17,8 @@ export default new Vuex.Store ({
         idToShow: null,
         orderToDelete: null,
         productToDelete: null,
-        showPopUp: false
+        showPopUp: false,
+        socketsCount: 0
     },
     getters: {
        getAllProducts: state => state.products,
