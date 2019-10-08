@@ -2,10 +2,10 @@
     <section class="orders-list">
         <div :class="{'orders-list-wrapper': big, 'orders-list-small': small}">
             <OrderItem v-for="order in orders"
-                    :key="order.id"
-                    :order="order"
-                    :small="small"
-                    @goSmall="goSmall" @showPopUp="$emit('showModal')"></OrderItem>
+                       :key="order.id"
+                       :order="order"
+                       :small="small"
+                       @goSmall="goSmall" @showPopUp="$emit('showModal')"></OrderItem>
         </div>
         <ProductsWindow v-show="showProducts" @hide="hideProducts"></ProductsWindow>
     </section>
@@ -41,10 +41,12 @@ export default {
           this.$store.commit('set', {type: 'showProducts', item: true});
       },
       hideProducts () {
-          this.$store.commit('set', {type: 'big', item: true});
-          this.$store.commit('set', {type: 'small', item: false});
           this.$store.commit('set', {type: 'showProducts', item: false});
-          this.$store.commit('set', {type: 'idToShow', item: null});
+          setTimeout(() => {
+              this.$store.commit('set', {type: 'big', item: true});
+              this.$store.commit('set', {type: 'small', item: false});
+              this.$store.commit('set', {type: 'idToShow', item: null});
+          }, 300);
       }
   }
 }
@@ -62,4 +64,5 @@ export default {
     .orders-list-small {
         flex-basis: 30%;
     }
+
 </style>

@@ -123,14 +123,14 @@ export default {
         display: flex;
     }
     .order-title {
-        flex-basis: 50%;
+        flex-basis: 47%;
         overflow: hidden;
         display: flex;
         padding-left: 3%;
         align-items: center;
     }
     .order-products {
-        flex-basis: 10%;
+        flex-basis: 13%;
         display: flex;
         justify-content: flex-start;
         align-items: center;

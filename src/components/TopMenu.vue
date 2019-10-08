@@ -57,6 +57,7 @@ export default {
         padding-left: 1%;
         border-radius: 5px;
         background-color: rgb(245, 247, 246);
+        outline: none;
     }
     .top-menu-date {
         display: flex;

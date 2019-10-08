@@ -1,19 +1,21 @@
 <template>
-    <section class="products-window">
-        <section class="products-window-header">
-            <h2 class="products-window-title">{{ title }}</h2>
-            <div class="products-window-add">
-                <button class="add-button">+</button>
-                <span class="add-text">Добавить продукт</span>
-            </div>
+    <transition name="modal">
+        <section class="products-window">
+            <section class="products-window-header">
+                <h2 class="products-window-title">{{ title }}</h2>
+                <div class="products-window-add">
+                    <button class="add-button">+</button>
+                    <span class="add-text">Добавить продукт</span>
+                </div>
+            </section>
+            <button class="products-window-close" @click="$emit('hide')">x</button>
+            <ProductItem v-for="product in products"
+                         :key="product.id"
+                         :product="product"
+                         :short="true"
+                         :orderId="id"></ProductItem>
         </section>
-        <button class="products-window-close" @click="$emit('hide')">x</button>
-        <ProductItem v-for="product in products"
-                     :key="product.id"
-                     :product="product"
-                     :short="true"
-                     :orderId="id"></ProductItem>
-    </section>
+    </transition>
 </template>
 
 <script>
@@ -85,5 +87,20 @@ export default {
         color: rgb(72, 176, 44);
         font-size: 15px;
         margin-left: 1%;
+    }
+
+
+
+    .modal-enter-active {
+        transition: all .3s ease;
+    }
+
+    .modal-leave-active {
+        transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+
+    .modal-enter, .modal-leave-to {
+        transform: translateX(40%);
+        opacity: 0;
     }
 </style>

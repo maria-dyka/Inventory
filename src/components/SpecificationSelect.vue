@@ -30,5 +30,6 @@
         width: 15em;
         background-color: white;
         font-weight: 600;
+        outline: none;
     }
 </style>

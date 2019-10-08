@@ -47,6 +47,7 @@ export default {
         align-items: center;
         position: relative;
         height: 100%;
+        overflow: hidden;
     }
     .orders-header {
         width: 80%;
