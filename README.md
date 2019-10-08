@@ -1,21 +1,25 @@
 # Inventory
 
-## Project setup
+### Setup project via one command
+To run the project locally clone this repo and run the `$ npm run setupDevEnv` command in the current directory
+
+### Setup project using separate commands
+To install the project dependencies run the following command:
 ```
-npm install
+$ npm install
 ```
 
-### Compiles and hot-reloads for development
+For local development (compile, hot-reloads) run the following command:
 ```
-npm run serve
+$ npm run serve
 ```
 
-### Compiles and minifies for production
+To compile and minify for production run the following command:
 ```
 npm run build
 ```
 
-### Lints and fixes files
+To identify and report on errors and warnings found in the project code run the following command:
 ```
 npm run lint
 ```
