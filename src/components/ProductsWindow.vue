@@ -39,7 +39,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
+
     .products-window {
         flex-basis: 68%;
         border: solid 1px lightgrey;
@@ -50,20 +52,8 @@ export default {
         margin-bottom: 2%;
     }
     .products-window-close {
-        position: absolute;
-        top: -7%;
-        left: 97%;
-        width: 38px;
-        height: 38px;
-        background-color: white;
-        font-size: medium;
-        color: lightgrey;
-        font-weight: 600;
-        outline: none;
-        border: none;
-        border-radius: 50%;
-        box-shadow: 3px 3px 11px -4px rgba(0, 0, 0, 0.4);
-        cursor: pointer;
+        @extend %all-buttons;
+        @extend %close-button;
     }
     .products-window-title {
         color: lightslategray;
@@ -73,32 +63,24 @@ export default {
         padding-left: 4%;
     }
     .add-button {
+        @extend %all-buttons;
         color: white;
-        background-color: rgb(72, 176, 44);
-        font-weight: 600;
+        background-color: $color;
         width: 20px;
         height: 20px;
-        border: none;
         border-radius: 50%;
-        cursor: pointer;
-        outline: none;
     }
     .add-text {
-        color: rgb(72, 176, 44);
+        color: $color;
         font-size: 15px;
         margin-left: 1%;
     }
-
-
-
     .modal-enter-active {
         transition: all .3s ease;
     }
-
     .modal-leave-active {
         transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
-
     .modal-enter, .modal-leave-to {
         transform: translateX(40%);
         opacity: 0;

@@ -1,0 +1,53 @@
+$color: rgb(72, 176, 44);
+
+%all-buttons {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: 600;
+}
+
+%all-blocks {
+  display: flex;
+  align-items: center;
+}
+
+%close-button {
+  position: absolute;
+  top: -7%;
+  left: 97%;
+  width: 2vw;
+  height: 2vw;
+  background-color: white;
+  font-size: medium;
+  color: lightgrey;
+  border-radius: 50%;
+  box-shadow: 3px 3px 11px -4px rgba(0, 0, 0, 0.4);
+}
+
+%delete-button {
+  flex-basis: 8%;
+  background: url("../assets/delete.png") center no-repeat;
+  background-size: 25%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+%title-text {
+  color: rgb(86, 94, 99);
+  font-size: 20px;
+  text-decoration: underline lightgrey;
+}
+
+%main-text {
+  margin-top: 0;
+  font-weight: 600;
+  color: rgb(86, 94, 99);
+}
+
+%additional-text {
+  color: lightslategray;
+  font-size: 15px;
+  margin-bottom: 0;
+}

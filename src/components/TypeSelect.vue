@@ -5,8 +5,9 @@
         </label>
         <select class="type-select-list" id="select-type" v-model="selected">
             <option disabled value="">Выберите тип</option>
-            <option>Monitors</option>
-            <option>Keyboard</option>
+            <option value="">Все</option>
+            <option value="Monitors">Мониторы</option>
+            <option value="Keyboard">Клавиатуры</option>
         </select>
     </div>
 </template>

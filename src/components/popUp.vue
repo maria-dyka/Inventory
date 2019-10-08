@@ -45,7 +45,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
     .pop-up-mask {
         background-color: rgba(0, 0, 0, 0.3);
         position: absolute;
@@ -53,8 +54,7 @@ export default {
         left: 0;
         height: 100%;
         width: 100%;
-        display: flex;
-        align-items: center;
+        @extend %all-blocks;
         justify-content: center;
         transition: opacity .6s ease;
     }
@@ -74,85 +74,60 @@ export default {
         flex-basis: 30%;
     }
     .pop-up-close {
-        position: absolute;
-        top: -7%;
-        left: 97%;
-        width: 38px;
-        height: 38px;
-        background-color: white;
-        font-size: medium;
-        color: lightgrey;
-        font-weight: 600;
-        outline: none;
-        border: none;
-        border-radius: 50%;
-        box-shadow: 3px 3px 11px -4px rgba(0, 0, 0, 0.4);
-        cursor: pointer;
+        @extend %all-buttons;
+        @extend %close-button;
     }
     .pop-up-body {
+        @extend %all-blocks;
         flex-basis: 28%;
-        display: flex;
-        align-items: center;
     }
     .pop-up-body-dot {
         width: 10px;
         height: 10px;
-        background-color: rgb(72, 176, 44);
+        background-color: $color;
         border-radius: 50%;
         align-self: center;
         margin: 0 20px 0 20px;
     }
     .pop-up-body-title {
         flex-basis: 85%;
-        color: rgb(86, 94, 99);
-        font-size: 20px;
-        text-decoration: underline lightgrey;
+        @extend %title-text;
     }
     .pop-up-footer {
-        background-color: rgb(72, 176, 44);
+        @extend %all-blocks;
+        background-color: $color;
         flex-basis: 42%;
-        display: flex;
         justify-content: flex-end;
-        align-items: center;
         padding-right: 4%;
     }
     .pop-up-cancel {
+        @extend %all-buttons;
         flex-basis: 20%;
         height: 40%;
-        outline: none;
-        border: none;
-        background-color: rgb(72, 176, 44);
+        background-color: $color;
         color: white;
-        font-weight: 600;
-        cursor: pointer;
     }
     .pop-up-cancel:hover {
         font-size: medium;
     }
     .pop-up-delete {
+        @extend %all-buttons;
         flex-basis: 20%;
         height: 40%;
-        outline: none;
-        border: none;
         background-color: white;
         color: red;
-        font-weight: 600;
         box-shadow: 3px 3px 11px -4px rgba(0, 0, 0, 0.4);
-        cursor: pointer;
         border-radius: 30px;
     }
     .pop-up-delete:hover {
         box-shadow: 4px 4px 15px 3px rgba(0, 0, 0, 0.4);
     }
-
     .modal-enter {
         opacity: 0;
     }
-
     .modal-leave-active {
         opacity: 0;
     }
-
     .modal-enter .modal-container,
     .modal-leave-active .modal-container {
         -webkit-transform: scale(1.1);

@@ -16,7 +16,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
     .navigation-menu-user {
         height: 20%;
         display: flex;
@@ -47,6 +48,6 @@ export default {
         padding: 2% 0 1% 0;
     }
     .router-link-exact-active {
-        border-bottom: solid 2px green;
+        border-bottom: solid 2px $color;
     }
 </style>

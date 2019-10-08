@@ -2,28 +2,28 @@
     <div :class="{'product': full,'product-short': short}">
         <div class="product-dot"></div>
         <div :class="{'product-title': !short,'product-title-short': short}">
-            <span class="title-text" id="product-title-text">{{ product.title }}</span>
+            <span class="product-title-text" id="product-title-text">{{ product.title }}</span>
             <span class="text" id="product-title-serial">{{ `SN-${product.serialNumber}` }}</span>
         </div>
         <div class="product-guarantee" v-if="!short">
-            <span class="guarantee" id="guarantee-start"><span class="text">c </span>{{ guaranteeDate.start }}</span>
-            <span class="guarantee" id="guarantee-end"><span class="text">по </span>{{ guaranteeDate.end }}</span>
+            <span class="product-guarantee-date" id="guarantee-start"><span class="text">c </span>{{ guaranteeDate.start }}</span>
+            <span class="product-guarantee-date" id="guarantee-end"><span class="text">по </span>{{ guaranteeDate.end }}</span>
         </div>
         <div class="product-condition" v-if="!short">
             <span>{{ isNew }}</span>
         </div>
         <div class="product-price" v-if="!short">
-            <p class="price-usd">{{ `${price.usd} $` }}</p>
-            <p class="price-uah">{{ `${price.uah} UAH` }}</p>
+            <p class="product-price-usd">{{ `${price.usd} $` }}</p>
+            <p class="product-price-uah">{{ `${price.uah} UAH` }}</p>
         </div>
         <div class="product-order" v-if="!short">
-            <span class="title-text" id="product-order-text">{{ relatedOrder.title }}</span>
+            <span class="product-title-text" id="product-order-text">{{ relatedOrder.title }}</span>
         </div>
         <div class="product-date" v-if="!short">
-            <p class="date-short">{{ date.short }}</p>
-            <p class="date-full">{{ date.full }}</p>
+            <p class="product-date-short">{{ date.short }}</p>
+            <p class="product-date-full">{{ date.full }}</p>
         </div>
-        <button class="delete" @click.stop="showPopUp"></button>
+        <button class="product-delete" @click.stop="showPopUp"></button>
     </div>
 </template>
 
@@ -86,7 +86,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
     .product {
         margin: 1% 0 1% 0;
         border: solid 1px lightgrey;
@@ -100,9 +101,9 @@ export default {
     .product-short {
         margin: 1% 0 1% 0;
         border: solid 1px lightgrey;
-        border-left: 0px !important;
-        border-right: 0px !important;
-        border-radius: 0px !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+        border-radius: 0 !important;
         display: flex;
         width: 100% !important;
     }
@@ -122,6 +123,9 @@ export default {
         align-items: flex-start;
         padding-left: 1%;
     }
+    .product-title-text {
+        @extend %title-text;
+    }
     .product-title-short {
         flex-basis: 90%;
         display: flex;
@@ -135,6 +139,12 @@ export default {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+    .product-guarantee-date, .product-date-full, .product-price-uah {
+        @extend %main-text;
+    }
+    .product-date-short, .product-price-usd, .text {
+        @extend %additional-text;
     }
     .product-condition {
         flex-basis: 8%;
@@ -159,6 +169,12 @@ export default {
         align-items: center;
         justify-content: center;
     }
+    .product-delete{
+        @extend %delete-button;
+    }
+    .product-delete:hover {
+        background-size: 30%;
+    }
 
     @media screen and (max-width: 1732px){
         .product-guarantee {
@@ -180,5 +196,4 @@ export default {
             width: 160%;
         }
     }
-
 </style>

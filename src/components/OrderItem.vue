@@ -1,7 +1,7 @@
 <template>
     <div class="order" @click="openProducts">
         <div class="order-title" v-if="!small">
-            <span class="title-text">{{ order.title }}</span>
+            <span class="order-title-text">{{ order.title }}</span>
         </div>
         <div :class="{'order-products': full, 'order-products-small': small}">
             <div class="order-products-icon"></div>
@@ -11,14 +11,14 @@
             </p>
         </div>
         <div :class="{'order-date': full, 'order-date-small': small}">
-            <p class="date-short">{{ properDate.short }}</p>
-            <p class="date-full">{{ properDate.full }}</p>
+            <p class="order-date-short">{{ properDate.short }}</p>
+            <p class="order-date-full">{{ properDate.full }}</p>
         </div>
         <div class="order-price" v-if="!small">
-            <p class="price-usd">{{ `${fullPrice.usd} $` }}</p>
-            <p class="price-uah">{{ `${fullPrice.uah} UAH` }}</p>
+            <p class="order-price-usd">{{ `${fullPrice.usd} $` }}</p>
+            <p class="order-price-uah">{{ `${fullPrice.uah} UAH` }}</p>
         </div>
-        <button class="delete" v-if="!small" @click.stop="showPopUp"></button>
+        <button class="order-delete" v-if="!small" @click.stop="showPopUp"></button>
         <div class="order-arrow" v-if="order.id === currentId"></div>
     </div>
 </template>
@@ -87,35 +87,8 @@ export default {
 }
 </script>
 
-<style>
-    .delete {
-        flex-basis: 8%;
-        background: url("../assets/delete.png") center no-repeat;
-        background-size: 25%;
-        border: none;
-        cursor: pointer;
-        outline: none;
-    }
-    .delete:hover {
-        background-size: 30%;
-    }
-    .date-short, .price-usd, .text {
-        color: lightslategray;
-        font-size: 15px;
-        margin-bottom: 0;
-    }
-    .date-full, .price-uah, .guarantee {
-        margin-top: 0;
-        font-weight: 600;
-        color: rgb(86, 94, 99);
-    }
-    .title-text {
-        color: rgb(86, 94, 99);
-        font-size: 20px;
-        text-decoration: underline lightgrey;
-    }
-</style>
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
     .order {
         margin: 1% 0 0 0;
         border: solid 1px lightgrey;
@@ -129,6 +102,9 @@ export default {
         padding-left: 3%;
         align-items: center;
     }
+    .order-title-text {
+        @extend %title-text;
+    }
     .order-products {
         flex-basis: 13%;
         display: flex;
@@ -141,8 +117,8 @@ export default {
         padding-left: 3%;
     }
     .order-products-icon {
-        min-width: 35px;
-        min-height: 35px;
+        min-width: 2vw;
+        min-height: 2vw;
         border: solid 1px black;
         border-radius: 50%;
         background: url("../assets/lines.png") center no-repeat;
@@ -173,6 +149,12 @@ export default {
         flex-direction: column;
         justify-content: center;
     }
+    .order-price-uah, .order-date-full {
+        @extend %main-text;
+    }
+    .order-price-usd, .order-date-short {
+        @extend %additional-text;
+    }
     .order:hover {
         box-shadow: 15px 15px 40px -10px rgba(0, 0, 0, .2);
     }
@@ -184,5 +166,10 @@ export default {
         background-position: center;
         background-repeat: no-repeat;
     }
-
+    .order-delete {
+        @extend %delete-button;
+    }
+    .order-delete:hover {
+        background-size: 30%;
+    }
 </style>

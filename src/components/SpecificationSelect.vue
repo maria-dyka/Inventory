@@ -5,8 +5,8 @@
         </label>
         <select class="spec-select-list" id="select-specification">
             <option disabled selected value="">Выберите спецификацию</option>
-            <option>Specification 1</option>
-            <option>Specification 2</option>
+            <option>Спецификация 1</option>
+            <option>Спецификация 2</option>
         </select>
     </div>
 </template>

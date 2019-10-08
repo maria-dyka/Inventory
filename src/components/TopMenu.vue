@@ -30,7 +30,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../styles/_variables.scss";
     .top-menu {
         height: 15%;
         display: flex;
@@ -46,7 +47,7 @@ export default {
     }
     .company-name {
         font-size: 20px;
-        color: green;
+        color: $color;
         font-weight: 700;
         margin-left: 20px;
     }
