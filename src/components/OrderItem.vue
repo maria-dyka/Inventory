@@ -18,7 +18,7 @@
             <p class="price-usd">{{ `${fullPrice.usd} $` }}</p>
             <p class="price-uah">{{ `${fullPrice.uah} UAH` }}</p>
         </div>
-        <button class="delete" v-if="!small"></button>
+        <button class="delete" v-if="!small" @click.stop="showPopUp"></button>
         <div class="order-arrow" v-if="order.id === currentId"></div>
     </div>
 </template>
@@ -69,14 +69,19 @@ export default {
             return {usd, uah};
         },
         currentId () {
-            return this.$store.state.id;
+            return this.$store.state.idToShow;
         }
     },
     methods: {
         openProducts () {
             this.showArrow = true;
-            this.$store.commit('set', {type: 'id', item: this.order.id});
+            this.$store.commit('set', {type: 'idToShow', item: this.order.id});
             this.$emit('goSmall', this.order.id);
+        },
+        showPopUp() {
+            this.$store.commit('set', {type: 'idToDelete', item: this.order.id});
+            this.$store.commit('set', {type: 'showPopUp', item: true});
+            this.$emit('showPopUp');
         }
     }
 }
@@ -90,6 +95,9 @@ export default {
         border: none;
         cursor: pointer;
         outline: none;
+    }
+    .delete:hover {
+        background-size: 30%;
     }
     .date-short, .price-usd, .text {
         color: lightslategray;

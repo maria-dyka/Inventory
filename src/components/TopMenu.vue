@@ -77,4 +77,7 @@ export default {
         background: url("../assets/clock.png") center no-repeat;
         background-size: contain;
     }
+    #time {
+        padding-left: 10%;
+    }
 </style>

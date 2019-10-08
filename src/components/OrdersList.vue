@@ -5,7 +5,7 @@
                     :key="order.id"
                     :order="order"
                     :small="small"
-                    @goSmall="goSmall"></OrderItem>
+                    @goSmall="goSmall" @showPopUp="$emit('showModal')"></OrderItem>
         </div>
         <ProductsWindow v-show="showProducts" @hide="hideProducts"></ProductsWindow>
     </section>
@@ -44,7 +44,7 @@ export default {
           this.$store.commit('set', {type: 'big', item: true});
           this.$store.commit('set', {type: 'small', item: false});
           this.$store.commit('set', {type: 'showProducts', item: false});
-          this.$store.commit('set', {type: 'id', item: null});
+          this.$store.commit('set', {type: 'idToShow', item: null});
       }
   }
 }

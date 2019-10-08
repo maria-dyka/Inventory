@@ -31,7 +31,7 @@ export default {
            return this.$store.getters.getProductsInOrder(this.id);
        },
        id () {
-           return this.$store.state.id;
+           return this.$store.state.idToShow;
        }
    }
 }

@@ -14,8 +14,9 @@ export default new Vuex.Store ({
         big: true,
         small:false,
         showProducts: null,
-        showArrow: null,
-        id: null
+        idToShow: null,
+        idToDelete: null,
+        showPopUp: false
     },
     getters: {
        getAllProducts: state => state.products,
@@ -37,14 +38,21 @@ export default new Vuex.Store ({
            let month = ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'];
 
            let day = days[state.date.getDay()];
-           let fullDate = '';
-           if(state.date.getDate()<10){
-               fullDate = `0${state.date.getDate()} ${month[state.date.getMonth()]}, ${state.date.getFullYear()}`;
+           let day2 = getProperNumber(state.date.getDate());
+           let fullDate = `${day2} ${month[state.date.getMonth()]}, ${state.date.getFullYear()}`;
+           let hours = getProperNumber(state.date.getHours());
+           let minutes = getProperNumber(state.date.getMinutes());
+           let time = `${hours}:${minutes}`;
+
+           //Function for adding zero to number if it's less than 10
+           function getProperNumber (number) {
+               if(number<10){
+                   return `0${number}`;
+               }
+               else {
+                   return number;
+               }
            }
-           else{
-               fullDate = `${state.date.getDay()} ${month[state.date.getMonth()]}, ${state.date.getFullYear()}`;
-           }
-           let time = `${state.date.getHours()}:${state.date.getMinutes()}`;
 
            return {day, fullDate, time};
        },

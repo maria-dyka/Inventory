@@ -92,7 +92,9 @@ export default {
     .product-short {
         margin: 1% 0 1% 0;
         border: solid 1px lightgrey;
-        border-radius: 5px;
+        border-left: 0px !important;
+        border-right: 0px !important;
+        border-radius: 0px !important;
         display: flex;
     }
     .product-dot {

@@ -4,7 +4,10 @@
             <button class="orders-header-add">+</button>
             <span class="orders-header-amount">{{ `Приходы / ${orders.length}` }}</span>
         </div>
-        <OrdersList :orders="orders"></OrdersList>
+        <OrdersList :orders="orders" @showModal="showModal"></OrdersList>
+        <popUp v-show="showPopUp">
+            <h3>Вы уверены, что хотите удалить этот приход?</h3>
+        </popUp>
     </section>
 </template>
 
@@ -16,11 +19,23 @@ export default {
     computed: {
       orders () {
           return this.$store.state.orders
+      },
+      showPopUp() {
+          // eslint-disable-next-line no-console
+          console.log('tutochki');
+          // eslint-disable-next-line no-console
+          console.log(this.$store.state.showPopUp);
+          return this.$store.state.showPopUp;
       }
     },
     components: {
         OrdersList,
         popUp
+    },
+    methods: {
+        showModal() {
+            this.$store.commit('set', {type: 'showPopUp', item: true});
+        }
     }
 }
 </script>
@@ -30,6 +45,8 @@ export default {
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        height: 100%;
     }
     .orders-header {
         width: 80%;
