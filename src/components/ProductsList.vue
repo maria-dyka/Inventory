@@ -24,7 +24,7 @@ export default {
     .products-list {
         width: 80%;
         height: border-box;
-        padding-bottom: 5%;
+        padding-bottom: 1.5%;
         overflow-x: scroll;
     }
 

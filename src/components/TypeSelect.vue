@@ -4,7 +4,7 @@
             Тип:
         </label>
         <select class="type-select-list" id="select-type" v-model="selected">
-            <option disabled value="">Выберите тип</option>
+            <option disabled :value="selected">Выберите тип</option>
             <option value="">Все</option>
             <option value="Monitors">Мониторы</option>
             <option value="Keyboard">Клавиатуры</option>
@@ -17,6 +17,9 @@
         name: "TypeSelect",
         computed: {
             selected: {
+                get () {
+                  return this.$store.state.criteria;
+                },
                 set (value) {
                     this.$store.dispatch('FILTERED_PRODUCTS', value);
                 }
