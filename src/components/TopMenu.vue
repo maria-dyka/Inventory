@@ -11,7 +11,9 @@
                 <span>{{ date.fullDate }}</span>
             </div>
             <div class="top-menu-date-time">
-                <div class="clock-icon"></div>
+                <div class="clock-icon">
+                    <img src="../assets/clock.png" width="15" height="15">
+                </div>
                 <span id="time">{{ date.time }}</span>
             </div>
 
@@ -79,8 +81,6 @@ export default {
     .clock-icon {
         width: 15px;
         height: 15px;
-        background: url("../assets/clock.png") center no-repeat;
-        background-size: contain;
     }
     #time {
         padding-left: 10%;
