@@ -27,7 +27,8 @@ export default {
   },
   sockets: {
     connect: function () {
-      console.log('socket connected')
+      // eslint-disable-next-line no-console
+      console.log('socket connected');
     },
     ping: function(data) {
       this.$store.commit('set', {type: 'socketsCount', item: data.counter});

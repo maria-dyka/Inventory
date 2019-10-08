@@ -5,6 +5,10 @@
             <span class="company-name">INVENTORY</span>
         </div>
         <input type="text" class="top-menu-search" placeholder="Поиск">
+        <div class="active">
+            <span class="active-pages">Активных вкладок:</span>
+            <span class="active-pages-counter">{{ counter }}</span>
+        </div>
         <div class="top-menu-date">
             <div class="top-menu-date-full">
                 <span>{{ date.day }}</span>
@@ -17,10 +21,7 @@
                 <span id="time">{{ date.time }}</span>
             </div>
         </div>
-        <div class="active">
-            <span class="active-pages">Активных вкладок:</span>
-            <span class="active-pages-counter">{{ counter }}</span>
-        </div>
+
     </header>
 </template>
 
@@ -70,7 +71,7 @@ export default {
         outline: none;
     }
     .top-menu-date {
-        flex-basis: 33%;
+        flex-basis: 25%;
         display: flex;
         justify-content: center;
     }
@@ -90,5 +91,15 @@ export default {
     }
     #time {
         padding-left: 10%;
+    }
+    .active {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 16%;
+        align-items: flex-end;
+    }
+    .active-pages-counter {
+        font-weight: 600;
+        color: $color;
     }
 </style>
