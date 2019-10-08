@@ -85,6 +85,7 @@ export default {
         border: solid 1px lightgrey;
         border-radius: 5px;
         display: flex;
+        width: 110%;
     }
     .product:hover {
         box-shadow: 0 15px 40px -10px rgba(0, 0, 0, .2);
@@ -160,22 +161,16 @@ export default {
         }
     }
 
-    /*@media screen and (max-width: 1640px){*/
-        /*.product {*/
-            /*width: 130vh;*/
-        /*}*/
-    /*}*/
+    @media screen and (max-width: 1408px){
+        .product {
+            width: 140%;
+        }
+    }
 
-    /*@media screen and (max-width: 1340px){*/
-        /*.product {*/
-            /*width: 150vh;*/
-        /*}*/
-    /*}*/
-
-    /*@media screen and (max-width: 1250px){*/
-        /*.product {*/
-            /*width: 170vh;*/
-        /*}*/
-    /*}*/
+    @media screen and (max-width: 1107px){
+        .product {
+            width: 160%;
+        }
+    }
 
 </style>

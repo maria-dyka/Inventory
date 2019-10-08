@@ -24,19 +24,21 @@ export default {
         width: 80%;
         height: border-box;
         padding-bottom: 5%;
+        overflow-x: scroll;
     }
 
-    @media screen and (max-width: 1640px){
-        .products-list {
-            overflow-x: scroll;
-        }
-        ::-webkit-scrollbar-thumb {
-            border-radius: 2px;
-            background-color: rgba(0,0,0,0.5);
-            box-shadow: 0 0 1px rgba(255,255,255,0.5);
-        }
-        ::-webkit-scrollbar-track {
-            border: solid 1px lightslategray;
-        }
+    ::-webkit-scrollbar {
+        height: 7px;
     }
+
+    ::-webkit-scrollbar-track {
+        border: solid 1px lightgrey;
+        border-radius: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 7px;
+        background-color: lightgrey;
+    }
+
 </style>

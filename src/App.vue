@@ -41,7 +41,7 @@ export default {
     height: 100%;
   }
   main {
-    height: 90%;
+    height: 85%;
     display: flex;
     align-items: stretch;
   }

@@ -32,13 +32,14 @@ export default {
 
 <style scoped>
     .top-menu {
-        height: 10%;
+        height: 15%;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         box-shadow: 0 15px 15px -10px rgba(0, 0, 0, .2);
     }
     .top-menu-company {
+        flex-basis: 33%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -60,7 +61,9 @@ export default {
         outline: none;
     }
     .top-menu-date {
+        flex-basis: 33%;
         display: flex;
+        justify-content: center;
     }
     .top-menu-date-full {
         display: flex;
@@ -70,7 +73,7 @@ export default {
         display: flex;
         align-self: flex-end;
         justify-content: space-between;
-        padding-left: 9%;
+        padding-left: 4%;
     }
     .clock-icon {
         width: 15px;
