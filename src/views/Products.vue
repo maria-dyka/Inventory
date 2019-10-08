@@ -5,7 +5,10 @@
             <TypeSelect></TypeSelect>
             <SpecificationSelect></SpecificationSelect>
         </div>
-        <ProductsList :products="products"></ProductsList>
+        <ProductsList :products="products" @showModal="showModal"></ProductsList>
+        <popUp v-show="showPopUp">
+            <h3>Вы уверены, что хотите удалить этот продукт?</h3>
+        </popUp>
     </section>
 </template>
 
@@ -13,17 +16,27 @@
 import TypeSelect from '../components/TypeSelect'
 import SpecificationSelect from '../components/SpecificationSelect'
 import ProductsList from '../components/ProductsList'
+import popUp from '../components/popUp'
 export default {
     name: "Products",
     computed: {
       products () {
          return this.$store.getters.getFilteredProducts || this.$store.getters.getAllProducts;
+      },
+      showPopUp () {
+          return this.$store.state.showPopUp;
       }
     },
     components: {
         TypeSelect,
         ProductsList,
-        SpecificationSelect
+        SpecificationSelect,
+        popUp
+    },
+    methods: {
+        showModal() {
+            this.$store.commit('set', {type: 'showPopUp', item: true});
+        }
     }
 }
 </script>

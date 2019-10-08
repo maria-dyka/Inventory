@@ -5,7 +5,8 @@
                        :key="order.id"
                        :order="order"
                        :small="small"
-                       @goSmall="goSmall" @showPopUp="$emit('showModal')"></OrderItem>
+                       @goSmall="goSmall"
+                       @showPopUp="$emit('showModal')"></OrderItem>
         </div>
         <ProductsWindow v-show="showProducts" @hide="hideProducts"></ProductsWindow>
     </section>

@@ -23,7 +23,7 @@
             <p class="date-short">{{ date.short }}</p>
             <p class="date-full">{{ date.full }}</p>
         </div>
-        <button class="delete"></button>
+        <button class="delete" @click.stop="showPopUp"></button>
     </div>
 </template>
 
@@ -75,6 +75,13 @@ export default {
         date () {
             return getProperDate(this.product.date);
         }
+    },
+    methods: {
+        showPopUp() {
+            this.$store.commit('set', {type: 'productToDelete', item: this.product.id});
+            this.$store.commit('set', {type: 'showPopUp', item: true});
+            this.$emit('showPopUp');
+        }
     }
 }
 </script>
@@ -97,6 +104,7 @@ export default {
         border-right: 0px !important;
         border-radius: 0px !important;
         display: flex;
+        width: 100% !important;
     }
     .product-dot {
         width: 10px;

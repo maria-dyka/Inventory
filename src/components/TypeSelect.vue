@@ -28,6 +28,7 @@
 <style scoped>
     .type-select {
         flex-basis: 20%;
+        margin-left: 2%;
     }
     .type-select-title {
         color: lightslategrey;
@@ -36,7 +37,7 @@
         flex-basis: 25%;
     }
     .type-select-list {
-        width: 80%;
+        width: 76%;
         background-color: white;
         font-weight: 600;
         outline: none;

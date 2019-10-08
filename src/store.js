@@ -15,7 +15,8 @@ export default new Vuex.Store ({
         small:false,
         showProducts: null,
         idToShow: null,
-        idToDelete: null,
+        orderToDelete: null,
+        productToDelete: null,
         showPopUp: false
     },
     getters: {
@@ -61,6 +62,15 @@ export default new Vuex.Store ({
            state.orders.forEach(order => {
                if(order.id === id){
                    title = order.title;
+               }
+           });
+           return title;
+       },
+       getProductTitleById: state => id => {
+           let title = '';
+           state.products.forEach(product => {
+               if(product.id === id){
+                   title = product.title;
                }
            });
            return title;

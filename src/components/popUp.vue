@@ -24,15 +24,22 @@ export default {
     name: "popUp",
     computed: {
         id () {
-            return this.$store.state.idToDelete;
+            return this.$store.state.orderToDelete || this.$store.state.productToDelete;
         },
         title () {
-            return this.$store.getters.getOrderTitleById(this.id);
+            if(this.$store.state.orderToDelete) {
+                return this.$store.getters.getOrderTitleById(this.id)
+            }
+            else {
+                return this.$store.getters.getProductTitleById(this.id);
+            }
         }
     },
     methods: {
         closePopUp () {
             this.$store.commit('set', {type: 'showPopUp', item: false});
+            this.$store.commit('set', {type: 'orderToDelete', item: null});
+            this.$store.commit('set', {type: 'productToDelete', item: null});
         }
     }
 }

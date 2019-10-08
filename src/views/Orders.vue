@@ -21,10 +21,6 @@ export default {
           return this.$store.state.orders
       },
       showPopUp() {
-          // eslint-disable-next-line no-console
-          console.log('tutochki');
-          // eslint-disable-next-line no-console
-          console.log(this.$store.state.showPopUp);
           return this.$store.state.showPopUp;
       }
     },

@@ -79,7 +79,7 @@ export default {
             this.$emit('goSmall', this.order.id);
         },
         showPopUp() {
-            this.$store.commit('set', {type: 'idToDelete', item: this.order.id});
+            this.$store.commit('set', {type: 'orderToDelete', item: this.order.id});
             this.$store.commit('set', {type: 'showPopUp', item: true});
             this.$emit('showPopUp');
         }
